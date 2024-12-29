@@ -16,7 +16,7 @@ This Repository is forked from [TimeEval/gutentag](https://github.com/TimeEval/g
    ```
 
    
-2. Edit the instructions file [`instructions.yaml`](./Aggregate_Labels/instructions.yamll) to define groups of time series and the config file for each group. Also specify the total number of series to generate and the number from each group.
+2. Edit the instructions file [`instructions.yaml`](./Aggregate_Labels/instructions.yaml) to define groups of time series and the config file for each group. Also specify the total number of series to generate and the number from each group.
 
    ```yaml
    num_series: 9
