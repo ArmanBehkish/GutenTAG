@@ -1,0 +1,24 @@
+timeseries:
+  - name: g4_random-walk
+    length: 100000
+    base-oscillations:
+      - kind: random-walk
+    anomalies:
+      - position: end
+        length: 657
+        channel: 0
+        kinds:
+          - kind: amplitude
+            amplitude_factor: 2.0
+      - position: end
+        channel: 0
+        length: 145
+        kinds:
+          - kind: mean
+            offset: 1.5
+      - position: middle
+        length: 471
+        channel: 0
+        kinds:
+          - kind: platform
+            value: 0

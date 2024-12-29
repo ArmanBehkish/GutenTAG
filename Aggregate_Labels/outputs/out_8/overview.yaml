@@ -1,0 +1,29 @@
+generated-timeseries:
+- anomalies:
+  - channel: 0
+    kinds:
+    - amplitude_factor: 2.0
+      kind: amplitude
+    length: 657
+    position: end
+  - channel: 0
+    kinds:
+    - kind: mean
+      offset: 1.5
+    length: 145
+    position: end
+  - channel: 0
+    kinds:
+    - kind: platform
+      value: 0
+    length: 471
+    position: middle
+  base-oscillations:
+  - kind: random-walk
+  generation-id: 0
+  length: 100000
+  name: g4_random-walk
+meta:
+  download_link: https://gitlab.hpi.de/akita/guten-tag
+  git_commit_sha: 2eff01c47c1dbe54b668686cf676c74afe975b92
+  seed: 421

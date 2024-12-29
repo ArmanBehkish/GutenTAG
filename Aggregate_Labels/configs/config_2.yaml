@@ -1,0 +1,25 @@
+timeseries:
+  - name: g2_cosine
+    length: 100000
+    base-oscillations:
+      - kind: cosine
+        frequency: 0.5
+    anomalies:
+      - position: end
+        length: 245
+        channel: 0
+        kinds:
+          - kind: variance
+            variance: 2.5
+      - position: middle
+        length: 50
+        kinds:
+          - kind: amplitude
+            amplitude_factor: 2.0
+      - position: end
+        length: 95
+        channel: 0
+        kinds:
+          - kind: pattern-shift
+            shift_by: 15
+            transition_window: 25

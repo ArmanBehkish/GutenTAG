@@ -1,0 +1,27 @@
+timeseries:
+  - name: g3_ecg
+    length: 100000
+    base-oscillations:
+      - kind: ecg
+        frequency: 1.5
+    anomalies:
+      - position: end
+        length: 164
+        channel: 0
+        kinds:
+          - kind: pattern-shift
+            shift_by: 10
+            transition_window: 15
+      - position: middle
+        length: 2
+        channel: 0
+        kinds:
+          - kind: extremum
+            min: false
+            local: false
+      - position: end
+        channel: 0
+        length: 65
+        kinds:
+          - kind: mean
+            offset: 1.5

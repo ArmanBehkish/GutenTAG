@@ -1,0 +1,21 @@
+# instructions to generate the dataset: total number of series, length of series, for each group the series base ocillation and anomaly type is read from config_path, and anomalies are injected at the specified positions
+
+num_series: 9
+output_series_file: "data.csv"
+output_labels_file: "labels.csv"
+
+group_1:
+  - number_of_series: 2
+  - config_file: "config_1.yaml"
+
+group_2:
+  - number_of_series: 2
+  - config_file: "config_2.yaml"
+
+group_3:
+  - number_of_series: 2
+  - config_file: "config_3.yaml"
+
+group_4:
+  - number_of_series: 3
+  - config_file: "config_4.yaml"

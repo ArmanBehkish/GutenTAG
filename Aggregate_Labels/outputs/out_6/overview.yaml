@@ -1,0 +1,32 @@
+generated-timeseries:
+- anomalies:
+  - channel: 0
+    kinds:
+    - kind: pattern-shift
+      shift_by: 10
+      transition_window: 15
+    length: 164
+    position: end
+  - channel: 0
+    kinds:
+    - kind: extremum
+      local: false
+      min: false
+    length: 2
+    position: middle
+  - channel: 0
+    kinds:
+    - kind: mean
+      offset: 1.5
+    length: 65
+    position: end
+  base-oscillations:
+  - frequency: 1.5
+    kind: ecg
+  generation-id: 0
+  length: 100000
+  name: g3_ecg
+meta:
+  download_link: https://gitlab.hpi.de/akita/guten-tag
+  git_commit_sha: 2eff01c47c1dbe54b668686cf676c74afe975b92
+  seed: 421

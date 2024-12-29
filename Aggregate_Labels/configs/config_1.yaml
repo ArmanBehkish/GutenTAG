@@ -1,0 +1,28 @@
+timeseries:
+  - name: g1_sine
+    length: 100000
+    base-oscillations:
+      - kind: sine
+        frequency: 1
+        amplitude: 2
+        variance: 0.2
+    anomalies:
+      - position: end
+        length: 80
+        channel: 0
+        kinds:
+          - kind: amplitude
+            amplitude_factor: 2.0
+      - position: middle
+        length: 45
+        channel: 0
+        kinds:
+          - kind: platform
+            value: 0
+      - position: end
+        length: 250
+        creeping-length: 100
+        channel: 0
+        kinds:
+          - kind: mean
+            offset: 1.0
