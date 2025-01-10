@@ -39,7 +39,7 @@ This Repository is forked from [TimeEval/gutentag](https://github.com/TimeEval/g
 
 3. Put the config files for each group in the [`configs`](./Aggregate_Labels/configs) folder.
 
-4. Run the script in the [`aggregate_labels.py`](./Aggregate_Labels/aggregate_labels.py) folder.
+4. Go to Aggregate_Labels directory and Run the script [`aggregate_labels.py`](./Aggregate_Labels/aggregate_labels.py) folder.
 
 5. The output dataset will be in the [`output_dataset`](./Aggregate_Labels/output_dataset) folder, named `data.csv` and `labels.csv`.
 

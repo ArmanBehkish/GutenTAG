@@ -24,11 +24,11 @@ class MultiDimDataset:
         self.output_labels_file: str
         self.series_df: pd.DataFrame = pd.DataFrame()
         self.labels_df: pd.DataFrame = pd.DataFrame()
-        self.path = "./Aggregate_Labels"
-        self.config_path = "./configs"
-        self.output_path = "./outputs"
-        self.final_output_path = "./output_dataset"
-        self.instructions_file = "./instructions.yaml"
+        self.path = "Aggregate_Labels"
+        self.config_path = "configs"
+        self.output_path = "outputs"
+        self.final_output_path = "output_dataset"
+        self.instructions_file = "instructions.yaml"
 
     def read_instructions(self):
         """
@@ -36,7 +36,7 @@ class MultiDimDataset:
         """
         try:
             with open(
-                os.path.join(os.getcwd(), self.path, self.instructions_file),
+                self.instructions_file,
                 "r",
                 encoding="utf-8",
             ) as file:
@@ -53,11 +53,8 @@ class MultiDimDataset:
         """
         Cleans the old files in the output_dataset folder.
         """
-        final_output_path = os.path.join(os.getcwd(), self.path, self.final_output_path)
-        output_path = os.path.join(os.getcwd(), self.path, self.output_path)
-
         # Clean output directories
-        for path in [output_path, final_output_path]:
+        for path in [self.output_path, self.final_output_path]:
             if os.path.exists(path):
                 for file in os.listdir(path):
                     file_path = os.path.join(path, file)
@@ -86,7 +83,7 @@ class MultiDimDataset:
             config_file = entries["config_file"]
             # read config file for the group
             with open(
-                os.path.join(os.getcwd(), self.path, self.config_path, config_file),
+                os.path.join(self.config_path, config_file),
                 "r",
                 encoding="utf-8",
             ) as f:
@@ -117,13 +114,8 @@ class MultiDimDataset:
 
         """
         self.series_count += 1
-        config_file_path = os.path.join(
-            os.getcwd(), self.path, self.config_path, config_file
-        )
-        output_file_path = os.path.join(
-            os.getcwd(), self.path, self.output_path, f"out_{self.series_count}"
-        )
-        final_output_path = os.path.join(os.getcwd(), self.path, self.final_output_path)
+        config_file_path = os.path.join(self.config_path, config_file)
+        output_file_path = os.path.join(self.output_path, f"out_{self.series_count}")
 
         os.system(
             f"python -m gutenTAG --config-yaml {config_file_path} --output-dir {output_file_path} --n-jobs {self.n_jobs} --seed {self.seed}{i}"
@@ -142,16 +134,16 @@ class MultiDimDataset:
 
         # writing to output files
         pd.DataFrame.to_csv(
-            self.series_df, f"{final_output_path}/{self.output_series_file}"
+            self.series_df, f"{self.final_output_path}/{self.output_series_file}"
         )
         pd.DataFrame.to_csv(
-            self.labels_df, f"{final_output_path}/{self.output_labels_file}"
+            self.labels_df, f"{self.final_output_path}/{self.output_labels_file}"
         )
 
 
 if __name__ == "__main__":
 
-    ds_obj = MultiDimDataset(seed=42, n_jobs=5)
+    ds_obj = MultiDimDataset(seed=14, n_jobs=5)
     ds_obj.read_instructions()
     ds_obj.clean_old_file()
     ds_obj.generate()
